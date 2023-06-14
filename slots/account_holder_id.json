@@ -1,0 +1,9 @@
+{
+  "name": "account_holder_id",
+  "description": "Names of account holders in disbursements database",
+  "valueSelectionStrategy": "TOP_RESOLUTION",
+  "enumerationValues": [
+    { "value": "account holder 1" },
+    { "value": "Another account holder" }
+  ]
+}
