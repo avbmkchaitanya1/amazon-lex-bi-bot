@@ -20,7 +20,7 @@ TOP_RESOLUTION = 1
 
 SLOT_CONFIG = {
     'event_name':       {'type': TOP_RESOLUTION, 'remember': True,  'error': 'I couldn\'t find an event called "{}".'},
-    'account_holder_id':   {'type': TOP_RESOLUTION, 'remember': True,  'error': 'I couldn\'t find an account called "{}".'},
+    'account_holder_id':   {'type': ORIGINAL_VALUE, 'remember': False},
     'event_month':      {'type': ORIGINAL_VALUE, 'remember': True},
     'venue_name':       {'type': ORIGINAL_VALUE, 'remember': True},
     'venue_city':       {'type': ORIGINAL_VALUE, 'remember': True},
