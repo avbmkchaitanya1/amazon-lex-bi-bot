@@ -90,10 +90,8 @@ def count_intent_handler(intent_request, session_attributes):
 
     result = response['ResultSet']['Rows'][1]['Data'][0]
     if result:
-        logger.debug("count from response: " + count)
         count = result['VarCharValue']
     else:
-        logger.debug("count is 0")
         count = 0
 
     logger.debug('<<BIBot>> "Count value is: %s' % count) 
