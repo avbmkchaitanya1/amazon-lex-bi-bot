@@ -49,23 +49,6 @@
             "sampleUtterances": []
         },
         {
-            "slotType": "account_holder_id",
-            "name": "account_holder_id",
-            "slotConstraint": "Optional",
-            "valueElicitationPrompt": {
-                "maxAttempts": 2,
-                "messages": [
-                    {
-                        "content": "account holder id",
-                        "contentType": "PlainText"
-                    }
-                ]
-            },
-            "priority": 3,
-            "slotTypeVersion": "$LATEST",
-            "sampleUtterances": []
-        },
-        {
             "slotType": "event_name", 
             "name": "event_name", 
             "slotConstraint": "Optional", 
@@ -78,10 +61,27 @@
                     }
                 ]
             }, 
-            "priority": 4,
+            "priority": 3,
             "slotTypeVersion": "$LATEST", 
             "sampleUtterances": []
-        }, 
+        },
+        {
+            "slotType": "account_holder_id",
+            "name": "account_holder_id",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "account holder id",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "priority": 4,
+            "slotTypeVersion": "$LATEST",
+            "sampleUtterances": []
+        },
         {
             "slotType": "AMAZON.Month", 
             "name": "event_month", 
