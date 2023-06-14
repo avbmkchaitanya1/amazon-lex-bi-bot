@@ -82,7 +82,7 @@ def count_intent_handler(intent_request, session_attributes):
         if slot_values[slot_key] is not None:
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COUNT_WHERE.format(bibot.DIMENSIONS.get(dimension).get('column'), value)
-    logger.debug('slot_values: ' + slot_values)
+            
     query_string = select_clause + where_clause
     logger.debug('query_string: ' + query_string)
     
