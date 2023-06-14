@@ -17,11 +17,7 @@
           "type": "CodeHook"
         },
         "sampleUtterances": [
-          "How many {account_holder_id} have the {paystation_service_level} disbursement",
-          "How many {detailed_result_code} for {account_holder_id}",
-          "How many {detailed_result_code} for {account_holder_id} in {disbursement_execution_date}",
-          "Total disbursements for {account_holder_id} in {disbursement_execution_date}",
-          "Total disbursements in {disbursement_execution_date}",
+          "How many {account_holder_id} have the disbursements",
           "How many disbursements"
         ],
     "slots": [
