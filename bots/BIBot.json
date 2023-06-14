@@ -16,7 +16,11 @@
         }, 
         {
             "intentVersion": "$LATEST", 
-	    "intentName": "Count_Intent"
+	          "intentName": "Count_Intent"
+        },
+        {
+          "intentVersion": "$LATEST", 
+          "intentName": "Count_Rejections_Intent"
         }, 
         {
             "intentVersion": "$LATEST", 
