@@ -5,9 +5,10 @@
     "enumerationValues": [
         {
             "synonyms": [
-                "Disbursement_Instant"
+                "RTP",
+                "Instant"
             ],
-            "value": "services" 
+            "value": "Disbursement_Instant" 
         }
     ]
 }

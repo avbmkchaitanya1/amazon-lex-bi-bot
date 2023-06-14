@@ -52,7 +52,7 @@ DIMENSIONS = {
     'cities':     {'slot': 'venue_city',  'column': 'v.venue_city',  'singular': 'city'},
     'states':     {'slot': 'venue_state', 'column': 'v.venue_state', 'singular': 'state'},
     'categories': {'slot': 'cat_desc',    'column': 'c.cat_desc',    'singular': 'category'},
-    'services': {'slot': 'paystation_service_level', 'column': 'ds.paystation_service_level', 'singular': 'service'}
+    'Disbursement_Instant': {'slot': 'paystation_service_level', 'column': 'ds.paystation_service_level', 'singular': 'service'}
 }
 
 
