@@ -42,24 +42,7 @@
             "slotTypeVersion": "$LATEST", 
             "sampleUtterances": [], 
             "description": "account_holder_id"
-        }, 
-//        {
-//            "slotType": "disbursement_execution_date",
-//            "name": "disbursement_execution_date",
-//            "slotConstraint": "Optional",
-//            "valueElicitationPrompt": {
-//                "maxAttempts": 2,
-//                "messages": [
-//                    {
-//                        "content": "The date of the disbursement",
-//                        "contentType": "PlainText"
-//                    }
-//                ]
-//            },
-//            "priority": 2,
-//            "sampleUtterances": [],
-//            "description": "disbursement_execution_date"
-//        },
+        },
         {
             "slotType": "paystation_service_level",
             "name": "paystation_service_level",
@@ -77,57 +60,5 @@
             "sampleUtterances": [], 
             "description": "paystation_service_level"
         }
-//        {
-//            "slotType": "AMAZON.US_STATE",
-//            "name": "venue_state",
-//            "slotConstraint": "Optional",
-//            "valueElicitationPrompt": {
-//                "maxAttempts": 2,
-//                "messages": [
-//                    {
-//                        "content": "The state where the event takes place",
-//                        "contentType": "PlainText"
-//                    }
-//                ]
-//            },
-//            "priority": 4,
-//            "sampleUtterances": [],
-//            "description": "venue_state"
-//        },
-//        {
-//            "slotType": "AMAZON.MusicVenue",
-//            "name": "venue_name",
-//            "slotConstraint": "Optional",
-//            "valueElicitationPrompt": {
-//                "maxAttempts": 2,
-//                "messages": [
-//                    {
-//                        "content": "The venue where the event takes place",
-//                        "contentType": "PlainText"
-//                    }
-//                ]
-//            },
-//            "priority": 5,
-//            "sampleUtterances": [],
-//            "description": "venue_name"
-//        },
-//        {
-//            "slotType": "cat_desc",
-//            "name": "cat_desc",
-//            "slotConstraint": "Optional",
-//            "valueElicitationPrompt": {
-//                "maxAttempts": 2,
-//                "messages": [
-//                    {
-//                        "content": "The type of event",
-//                        "contentType": "PlainText"
-//                    }
-//                ]
-//            },
-//            "priority": 6,
-//            "slotTypeVersion": "$LATEST",
-//            "sampleUtterances": [],
-//            "description": "cat_desc"
-//        }
     ]
 }
