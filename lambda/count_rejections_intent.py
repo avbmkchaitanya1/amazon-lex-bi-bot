@@ -24,8 +24,8 @@ import bibot_userexits as userexits
 
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
-COUNT_SELECT = "SELECT COUNT(*) FROM disbursements d"
-COUNT_JOIN = " WHERE d.legacy_disbursement_status in (620, 630)"
+COUNT_SELECT = "SELECT COUNT(*) FROM disbursements ds"
+COUNT_JOIN = " WHERE ds.legacy_disbursement_status in (620, 630)"
 COUNT_WHERE = " AND LOWER({}) LIKE LOWER('%{}%')"
 
 logger = logging.getLogger()
@@ -82,7 +82,7 @@ def count_intent_handler(intent_request, session_attributes):
         if slot_values[slot_key] is not None:
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COUNT_WHERE.format(bibot.DIMENSIONS.get(dimension).get('column'), value)
-            
+
     query_string = select_clause + where_clause
     logger.debug('query_string: ' + query_string)
     
