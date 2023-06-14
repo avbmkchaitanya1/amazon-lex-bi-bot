@@ -25,7 +25,7 @@ import bibot_userexits as userexits
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
 COUNT_SELECT = "SELECT COUNT(*) FROM disbursements ds"
-COUNT_JOIN = " WHERE ds.legacy_disbursement_status in (620, 630)"
+COUNT_JOIN = " WHERE ds.legacy_disbursement_status = 625"
 COUNT_WHERE = " AND {} = '{}'"
 
 logger = logging.getLogger()
