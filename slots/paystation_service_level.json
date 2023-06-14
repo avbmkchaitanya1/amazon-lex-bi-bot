@@ -1,0 +1,13 @@
+{
+    "name": "paystation_service_level",
+    "description": "name of service level",
+    "valueSelectionStrategy": "TOP_RESOLUTION",
+    "enumerationValues": [
+        {
+            "synonyms": [
+                "Disbursement_Instant"
+            ],
+            "value": "services" 
+        }
+    ]
+}

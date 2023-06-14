@@ -22,6 +22,7 @@ SLOT_CONFIG = {
     'event_name':       {'type': TOP_RESOLUTION, 'remember': True,  'error': 'I couldn\'t find an event called "{}".'},
     'account_holder_id':   {'type': TOP_RESOLUTION, 'remember': True,  'error': 'I couldn\'t find an account called "{}".'},
     'account_holder_id':   {'type': ORIGINAL_VALUE, 'remember': False},
+    'paystation_service_level': {'type': ORIGINAL_VALUE, 'remember': False},
     'event_month':      {'type': ORIGINAL_VALUE, 'remember': True},
     'venue_name':       {'type': ORIGINAL_VALUE, 'remember': True},
     'venue_city':       {'type': ORIGINAL_VALUE, 'remember': True},
@@ -50,7 +51,8 @@ DIMENSIONS = {
     'venues':     {'slot': 'venue_name',  'column': 'v.venue_name',  'singular': 'venue'},
     'cities':     {'slot': 'venue_city',  'column': 'v.venue_city',  'singular': 'city'},
     'states':     {'slot': 'venue_state', 'column': 'v.venue_state', 'singular': 'state'},
-    'categories': {'slot': 'cat_desc',    'column': 'c.cat_desc',    'singular': 'category'}
+    'categories': {'slot': 'cat_desc',    'column': 'c.cat_desc',    'singular': 'category'},
+    'services': {'slot': 'paystation_service_level', 'column': 'ds.paystation_service_level', 'singular': 'service'}
 }
 
 
