@@ -80,4 +80,11 @@ aws athena start-query-execution \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
 
+# Create Disbursements tables in Athena
+echo "Disbursements table..."
 
+aws athena start-query-execution \
+    --query-string "create external table disbursements (account_holder_id STRING, transfer_amount DECIMAL(8,2), paystation_service_level STRING, disbursement_execution_date TIMESTAMP, disbursement_completion_date TIMESTAMP, detailed_result_code STRING, legacy_disbursement_status INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '$ATHENA_BUCKET/disbursements';" \
+    --query-execution-context "Database=$ATHENA_DB" \
+    --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
+    >/dev/null

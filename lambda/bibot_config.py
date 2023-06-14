@@ -20,6 +20,7 @@ TOP_RESOLUTION = 1
 
 SLOT_CONFIG = {
     'event_name':       {'type': TOP_RESOLUTION, 'remember': True,  'error': 'I couldn\'t find an event called "{}".'},
+    'account_holder':   {'type': TOP_RESOLUTION, 'remember': True,  'error': 'I couldn\'t find an account called "{}".'},
     'event_month':      {'type': ORIGINAL_VALUE, 'remember': True},
     'venue_name':       {'type': ORIGINAL_VALUE, 'remember': True},
     'venue_city':       {'type': ORIGINAL_VALUE, 'remember': True},
@@ -43,6 +44,7 @@ SLOT_CONFIG = {
 
 DIMENSIONS = {
     'events':     {'slot': 'event_name',  'column': 'e.event_name',  'singular': 'event'},
+    'accounts':   {'slot': 'account_holder',  'column': 'ds.account_holder_id',  'singular': 'account'},
     'months':     {'slot': 'event_month', 'column': 'd.month',       'singular': 'month'},
     'venues':     {'slot': 'venue_name',  'column': 'v.venue_name',  'singular': 'venue'},
     'cities':     {'slot': 'venue_city',  'column': 'v.venue_city',  'singular': 'city'},

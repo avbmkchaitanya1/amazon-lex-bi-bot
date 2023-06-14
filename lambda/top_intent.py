@@ -23,10 +23,9 @@ import bibot_helpers as helpers
 import bibot_userexits as userexits
 
 # SELECT statement for Top query
-TOP_SELECT  = "SELECT {}, SUM(s.amount) ticket_sales FROM sales s, event e, venue v, category c, date_dim d  "
-TOP_JOIN    = " WHERE e.event_id = s.event_id AND v.venue_id = e.venue_id AND c.cat_id = e.cat_id AND d.date_id = e.date_id "
-TOP_WHERE   = " AND LOWER({}) LIKE LOWER('%{}%') " 
-TOP_ORDERBY = " GROUP BY {} ORDER BY ticket_sales desc" 
+TOP_SELECT  = "SELECT {}, SUM(ds.transfer_amount) transfer_amount FROM disbursements ds "
+TOP_WHERE   = " AND LOWER({}) LIKE LOWER('%{}%') "
+TOP_ORDERBY = " GROUP BY {} ORDER BY transfer_amount desc"
 TOP_DEFAULT_COUNT = '5'
 
 logger = logging.getLogger()
@@ -69,7 +68,7 @@ def top_intent_handler(intent_request, session_attributes):
 
     # Retrieve "remembered" slot values from session attributes
     slot_values = helpers.get_remembered_slot_values(slot_values, session_attributes)
-    logger.debug('<<BIBot>> "top_intent_handler(): slot_values afer get_remembered_slot_values: %s', slot_values)
+    logger.debug('<<BIBot>> "top_intent_handler(): slot_values after get_remembered_slot_values: %s', slot_values)
 
     if slot_values.get('count') is None:
         slot_values['count'] = TOP_DEFAULT_COUNT
@@ -119,9 +118,8 @@ def top_intent_handler(intent_request, session_attributes):
     except KeyError:
         return helpers.close(session_attributes, 'Fulfilled',
             {'contentType': 'PlainText', 'content': "Sorry, I don't know what you mean by " + slot_values['dimension']})
-            
-    # add JOIN clauses 
-    where_clause = TOP_JOIN
+
+    where_clause = ''
 
     # add WHERE clause for each non empty slot
     for dimension in bibot.DIMENSIONS:

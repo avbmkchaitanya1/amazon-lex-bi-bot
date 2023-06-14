@@ -42,6 +42,15 @@
                 "state"
             ], 
             "value": "states"
+        },
+        {
+            "synonyms": [
+                "sellers",
+                "customers",
+                "users",
+                "accounts"
+            ],
+            "value": "accounts"
         }
     ]
 }
