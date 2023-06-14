@@ -25,8 +25,8 @@ import bibot_userexits as userexits
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
 COUNT_SELECT = "SELECT COUNT(*) FROM disbursements ds"
-COUNT_JOIN = " WHERE ds.legacy_disbursement_status = 625"
-COUNT_WHERE = " AND {} = '{}'"
+COUNT_JOIN = ""
+COUNT_WHERE = " WHERE {} = '{}'"
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -90,8 +90,10 @@ def count_intent_handler(intent_request, session_attributes):
 
     result = response['ResultSet']['Rows'][1]['Data'][0]
     if result:
+        logger.debug("count from response: " + count)
         count = result['VarCharValue']
     else:
+        logger.debug("count is 0")
         count = 0
 
     logger.debug('<<BIBot>> "Count value is: %s' % count) 
