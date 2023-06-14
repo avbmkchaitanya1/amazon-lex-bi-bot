@@ -1,0 +1,9 @@
+{
+  "name": "account_holder",
+  "description": "Names of account holders in database",
+  "valueSelectionStrategy": "TOP_RESOLUTION",
+  "enumerationValues": [
+    { "value": "sample account holder" },
+    { "value": "Another sample account holder" }
+  ]
+}
