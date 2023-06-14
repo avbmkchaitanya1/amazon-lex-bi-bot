@@ -24,8 +24,8 @@ import bibot_userexits as userexits
 
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
-COUNT_SELECT = "SELECT SUM(d.paystation_service_level) FROM disbursements d"
-COUNT_JOIN = "WHERE "
+COUNT_SELECT = "SELECT COUNT(*) FROM disbursements d"
+COUNT_JOIN = " WHERE d.paystation_service_level = 'Disbursement_Instant'"
 COUNT_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "   
 COUNT_PHRASE = 'rtp disbursements'
 
@@ -84,8 +84,7 @@ def count_intent_handler(intent_request, session_attributes):
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COUNT_WHERE.format(bibot.DIMENSIONS.get(dimension).get('column'), value)
     
-    query_string = select_clause
-    #+ where_clause
+    query_string = select_clause + where_clause
     
     response = helpers.execute_athena_query(query_string)
 
