@@ -25,7 +25,7 @@ import bibot_userexits as userexits
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
 COUNT_SELECT = "SELECT COUNT(*) FROM disbursements d"
-COUNT_JOIN = " WHERE d.paystation_service_level = 'Disbursement_Instant'"
+COUNT_JOIN = " WHERE d.paystation_service_level LIKE '%Disbursement_Instant%'"
 COUNT_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "   
 COUNT_PHRASE = 'rtp disbursements'
 
