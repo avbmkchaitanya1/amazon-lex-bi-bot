@@ -23,10 +23,11 @@ import bibot_helpers as helpers
 import bibot_userexits as userexits
 
 # SELECT statement for Count query
-COUNT_SELECT = "SELECT SUM(s.qty) FROM sales s, event e, venue v, category c, date_dim d "
-COUNT_JOIN = " WHERE e.event_id = s.event_id AND v.venue_id = e.venue_id AND c.cat_id = e.cat_id AND d.date_id = e.date_id "
+#Count Disbursement_Instant disbursements
+COUNT_SELECT = "SELECT SUM(d.paystation_service_level) FROM disbursements d"
+COUNT_JOIN = "WHERE "
 COUNT_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "   
-COUNT_PHRASE = 'tickets sold'
+COUNT_PHRASE = 'rtp disbursements'
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -83,7 +84,8 @@ def count_intent_handler(intent_request, session_attributes):
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COUNT_WHERE.format(bibot.DIMENSIONS.get(dimension).get('column'), value)
     
-    query_string = select_clause + where_clause
+    query_string = select_clause
+    #+ where_clause
     
     response = helpers.execute_athena_query(query_string)
 
