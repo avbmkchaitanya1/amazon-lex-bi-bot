@@ -51,16 +51,6 @@
                 "accounts"
             ],
             "value": "accounts"
-        },
-        {
-            "synonyms": [
-                "payment rail",
-                "payout mode",
-                "payout method",
-                "payment method",
-                "payout method"
-            ],
-            "value": "service_levels"
         }
     ]
 }

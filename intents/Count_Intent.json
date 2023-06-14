@@ -42,24 +42,6 @@
             "slotTypeVersion": "$LATEST", 
             "sampleUtterances": [], 
             "description": "account_holder_id"
-        },
-        {
-            "slotType": "paystation_service_level",
-            "name": "paystation_service_level",
-            "slotConstraint": "Optional", 
-            "valueElicitationPrompt": {
-                "maxAttempts": 2, 
-                "messages": [
-                    {
-                        "content": "The payment rail of the disbursement",
-                        "contentType": "PlainText"
-                    }
-                ]
-            }, 
-            "priority": 3,
-            "slotTypeVersion": "$LATEST",
-            "sampleUtterances": [],
-            "description": "paystation_service_level"
         }
     ]
 }
