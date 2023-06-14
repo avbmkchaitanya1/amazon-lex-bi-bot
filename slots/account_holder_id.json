@@ -1,5 +1,5 @@
 {
-  "name": "account_holder",
+  "name": "account_holder_id",
   "description": "Names of account holders in database",
   "valueSelectionStrategy": "TOP_RESOLUTION",
   "enumerationValues": [
