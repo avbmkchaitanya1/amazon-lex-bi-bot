@@ -24,7 +24,7 @@ import bibot_userexits as userexits
 
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
-COUNT_SELECT = "SELECT SUM(transfer_amount) FROM disbursements"
+COUNT_SELECT = "SELECT COUNT(*) FROM disbursements"
 COUNT_JOIN = " WHERE legacy_disbursement_status IN (620, 630)"
 COUNT_WHERE = " AND {} = '{}'"
 
