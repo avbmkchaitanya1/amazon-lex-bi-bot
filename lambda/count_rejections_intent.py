@@ -27,6 +27,7 @@ import bibot_userexits as userexits
 COUNT_SELECT = "SELECT COUNT(*) FROM disbursements"
 COUNT_JOIN = " WHERE legacy_disbursement_status in (620, 630)"
 COUNT_WHERE = " AND {} = '{}'"
+QUERY = "select COUNT(*) from disbursements where legacy_disbursement_status in (620, 630) and paystation_service_level = 'Disbursement_Instant' and disbursement_completion_date >= sysdate - 10"
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -41,7 +42,7 @@ def lambda_handler(event, context):
 
     if config_error is not None:
         return helpers.close(session_attributes, 'Fulfilled',
-            {'contentType': 'PlainText', 'content': config_error})   
+            {'contentType': 'PlainText', 'content': config_error})
     else:
         return count_intent_handler(event, session_attributes)
 
@@ -86,7 +87,7 @@ def count_intent_handler(intent_request, session_attributes):
     query_string = select_clause + where_clause
     logger.debug('query_string: ' + query_string)
     
-    response = helpers.execute_athena_query(query_string)
+    response = helpers.execute_athena_query(QUERY)
 
     result = response['ResultSet']['Rows'][1]['Data'][0]
     if result:
