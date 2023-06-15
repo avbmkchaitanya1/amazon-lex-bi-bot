@@ -3,6 +3,7 @@
     "description": "Top five sales by dimension",
     "sampleUtterances": [
         "What were the top {count} {dimension} for {cat_desc}",
+        "Who are the top {count} {dimension} based on transfer amount",
         "Tell me the top {count} {dimension} in {venue_city} {venue_state}", 
         "Top {count} {dimension} for {cat_desc}", 
         "Top {count} {dimension} in {venue_state}", 
