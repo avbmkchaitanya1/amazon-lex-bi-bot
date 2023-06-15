@@ -25,9 +25,8 @@ import bibot_userexits as userexits
 # SELECT statement for Count query
 #Count Disbursement_Instant disbursements
 COUNT_SELECT = "SELECT COUNT(*) FROM disbursements"
-COUNT_JOIN = " WHERE legacy_disbursement_status in (620, 630)"
+COUNT_JOIN = " WHERE legacy_disbursement_status IN (620, 630)"
 COUNT_WHERE = " AND {} = '{}'"
-QUERY = "select COUNT(*) from disbursements where legacy_disbursement_status in (620, 630) and paystation_service_level = 'Disbursement_Instant' and disbursement_completion_date >= sysdate - 10"
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -44,14 +43,14 @@ def lambda_handler(event, context):
         return helpers.close(session_attributes, 'Fulfilled',
             {'contentType': 'PlainText', 'content': config_error})
     else:
-        return count_intent_handler(event, session_attributes)
+        return count_rejections_intent_handler(event, session_attributes)
 
 
-def count_intent_handler(intent_request, session_attributes):
+def count_rejections_intent_handler(intent_request, session_attributes):
     method_start = time.perf_counter()
     
-    logger.debug('<<BIBot>> count_intent_handler: intent_request = ' + json.dumps(intent_request))
-    logger.debug('<<BIBot>> count_intent_handler: session_attributes = ' + json.dumps(session_attributes))
+    logger.debug('<<BIBot>> count_rejections_intent_handler: intent_request = ' + json.dumps(intent_request))
+    logger.debug('<<BIBot>> count_rejections_intent_handler: session_attributes = ' + json.dumps(session_attributes))
     
     session_attributes['greetingCount'] = '1'
     session_attributes['resetCount'] = '0'
@@ -66,11 +65,11 @@ def count_intent_handler(intent_request, session_attributes):
     except bibot.SlotError as err:
         return helpers.close(session_attributes, 'Fulfilled', {'contentType': 'PlainText','content': str(err)})   
     
-    logger.debug('<<BIBot>> "count_intent_handler(): slot_values: %s', slot_values)
+    logger.debug('<<BIBot>> "count_rejections_intent_handler(): slot_values: %s', slot_values)
 
     # Retrieve "remembered" slot values from session attributes
     slot_values = helpers.get_remembered_slot_values(slot_values, session_attributes)
-    logger.debug('<<BIBot>> "count_intent_handler(): slot_values afer get_remembered_slot_values: %s', slot_values)
+    logger.debug('<<BIBot>> "count_rejections_intent_handler(): slot_values afer get_remembered_slot_values: %s', slot_values)
 
     # Remember updated slot values
     helpers.remember_slot_values(slot_values, session_attributes)
@@ -87,7 +86,7 @@ def count_intent_handler(intent_request, session_attributes):
     query_string = select_clause + where_clause
     logger.debug('query_string: ' + query_string)
     
-    response = helpers.execute_athena_query(QUERY)
+    response = helpers.execute_athena_query(query_string)
 
     result = response['ResultSet']['Rows'][1]['Data'][0]
     if result:
@@ -95,7 +94,7 @@ def count_intent_handler(intent_request, session_attributes):
     else:
         count = 0
 
-    logger.debug('<<BIBot>> "Count value is: %s' % count) 
+    logger.debug('<<BIBot>> "Count value is: %s' % count)
 
     # build response string
     if count == 0:
