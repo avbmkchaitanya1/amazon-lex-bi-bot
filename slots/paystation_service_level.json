@@ -6,7 +6,8 @@
         {
             "synonyms": [
                 "RTP",
-                "Instant"
+                "Instant",
+                "Express Payout"
             ],
             "value": "Disbursement_Instant" 
         }
