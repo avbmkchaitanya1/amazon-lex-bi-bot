@@ -2,7 +2,9 @@
     "name": "Count_Rejections_Intent", 
     "description": "Top five sales by dimension",
     "sampleUtterances": [
-        "How many {paystation_service_level} rejections"
+        "How many {paystation_service_level} rejections",
+        "How many {paystation_service_level} disbursement rejections",
+        "How many total disbursement rejections"
     ], 
     "slots": [
         {
